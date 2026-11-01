@@ -1,7 +1,7 @@
-export default function Home() {
-  return (
-    <main className="p-8">
-      <h1 className="text-2xl font-bold">DevNotes</h1>
-    </main>
-  )
-}
+const Home = () => (
+  <main className="p-8">
+    <h1 className="text-2xl font-bold">DevNotes</h1>
+  </main>
+)
+
+export default Home
