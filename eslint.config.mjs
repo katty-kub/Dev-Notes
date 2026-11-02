@@ -1,20 +1,25 @@
 import js from '@eslint/js'
-import { defineConfig, globalIgnores } from 'eslint/config'
+import { defineConfig } from 'eslint/config'
 import nextVitals from 'eslint-config-next/core-web-vitals'
 import nextTs from 'eslint-config-next/typescript'
 import prettier from 'eslint-config-prettier/flat'
 import jsxA11y from 'eslint-plugin-jsx-a11y'
 
+// Files Next registers its plugins for. Without `files`, a .cjs file crashes lint (no plugin there).
+const sourceFiles = ['**/*.{js,jsx,mjs,ts,tsx,mts,cts}']
+const typePropsDirectly = 'Type the props directly: const Card = ({ title }: CardProps) => …'
+
 const eslintConfig = defineConfig([
   // Base JS rules first, so the TS preset can turn off the ones TypeScript already checks
   js.configs.recommended,
-  // Full a11y set. Before Next, so Next keeps its own alt-text options for <Image>.
-  { rules: jsxA11y.flatConfigs.recommended.rules },
+  // Recommended a11y set. Next then sets a few of its rules to warn; alt-text is restored below.
+  { files: sourceFiles, rules: jsxA11y.flatConfigs.recommended.rules },
   ...nextVitals,
   ...nextTs,
   // Turns off rules that clash with Prettier. Everything after it can override that.
   prettier,
   {
+    files: sourceFiles,
     rules: {
       // General
       eqeqeq: ['error', 'always', { null: 'ignore' }],
@@ -37,7 +42,8 @@ const eslintConfig = defineConfig([
       'no-restricted-syntax': [
         'error',
         {
-          selector: 'FunctionDeclaration[generator=false]',
+          selector:
+            'FunctionDeclaration[generator=false], :not(MethodDefinition, Property) > FunctionExpression[generator=false]',
           message: 'Use an arrow function: const name = () => {}',
         },
       ],
@@ -47,7 +53,12 @@ const eslintConfig = defineConfig([
       // TypeScript
       '@typescript-eslint/no-unused-vars': [
         'error',
-        { argsIgnorePattern: '^_', varsIgnorePattern: '^_', ignoreRestSiblings: true },
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+          ignoreRestSiblings: true,
+        },
       ],
       '@typescript-eslint/no-shadow': 'error',
       '@typescript-eslint/no-use-before-define': 'error',
@@ -57,8 +68,10 @@ const eslintConfig = defineConfig([
         'error',
         {
           types: {
-            FC: 'Type the props directly: const Card = ({ title }: CardProps) => …',
-            'React.FC': 'Type the props directly: const Card = ({ title }: CardProps) => …',
+            FC: typePropsDirectly,
+            'React.FC': typePropsDirectly,
+            FunctionComponent: typePropsDirectly,
+            'React.FunctionComponent': typePropsDirectly,
           },
         },
       ],
@@ -82,6 +95,12 @@ const eslintConfig = defineConfig([
         },
       ],
 
+      // Next narrows alt-text to <img>; check the other elements too, keep <Image>
+      'jsx-a11y/alt-text': [
+        'error',
+        { elements: ['img', 'object', 'area', 'input[type="image"]'], img: ['Image'] },
+      ],
+
       // React
       'react/self-closing-comp': 'error',
       'react/jsx-boolean-value': 'error',
@@ -94,7 +113,7 @@ const eslintConfig = defineConfig([
   },
   {
     // Rules that need type information, so only for TS files
-    files: ['**/*.ts', '**/*.tsx'],
+    files: ['**/*.{ts,tsx,mts}'],
     languageOptions: {
       parserOptions: { projectService: true, tsconfigRootDir: import.meta.dirname },
     },
@@ -107,7 +126,6 @@ const eslintConfig = defineConfig([
       ],
     },
   },
-  globalIgnores(['.next/**', 'out/**', 'build/**', 'next-env.d.ts']),
 ])
 
 export default eslintConfig
