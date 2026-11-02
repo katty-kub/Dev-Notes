@@ -12,10 +12,10 @@ export const metadata: Metadata = {
   description: 'Poznámky pro vývojáře',
 }
 
-export default function RootLayout({ children }: LayoutProps<'/'>) {
-  return (
-    <html lang="cs" className={`${geistSans.variable} h-full antialiased`}>
-      <body className="flex min-h-full flex-col">{children}</body>
-    </html>
-  )
-}
+const RootLayout = ({ children }: LayoutProps<'/'>) => (
+  <html lang="cs" className={`${geistSans.variable} h-full antialiased`}>
+    <body className="flex min-h-full flex-col">{children}</body>
+  </html>
+)
+
+export default RootLayout

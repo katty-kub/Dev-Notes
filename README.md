@@ -25,5 +25,6 @@ Open [http://localhost:3000](http://localhost:3000).
 | `npm run build`        | Build for production           |
 | `npm run start`        | Run the production build       |
 | `npm run lint`         | Check code with ESLint         |
+| `npm run typecheck`    | Check types with TypeScript    |
 | `npm run format`       | Format all files with Prettier |
 | `npm run format:check` | Check formatting with Prettier |
