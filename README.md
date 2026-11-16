@@ -28,3 +28,7 @@ Open [http://localhost:3000](http://localhost:3000).
 | `npm run typecheck`    | Check types with TypeScript    |
 | `npm run format`       | Format all files with Prettier |
 | `npm run format:check` | Check formatting with Prettier |
+
+## AI agents
+
+Rules for AI coding agents are in [AGENTS.md](AGENTS.md).
