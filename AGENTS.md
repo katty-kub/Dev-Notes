@@ -55,6 +55,9 @@ ESLint enforces most of the style (`eslint.config.mjs`). Rules it can't fix for 
 - Define helpers and child components above the place where they are used (`@typescript-eslint/no-use-before-define`).
 - Type props directly (`const Card = ({ title }: CardProps) => …`), never `React.FC`.
 - Never turn off a lint rule (`eslint-disable`) without asking a mentor.
+- Colors only from the role tokens in `src/app/globals.css` (`bg-surface`, `text-muted`, `bg-primary`). Never a palette name (`--cyber-cyan`), hex, `oklch()` or an arbitrary value (`bg-[#fff]`) in components. Tailwind's default palette is turned off.
+- Fonts (`font-sans`, `font-mono`, `font-logo`), font sizes and spacing come from Tailwind's default scale and the tokens in `globals.css`, not arbitrary values (`text-[13px]`).
+- A new color goes into the palette and a role in `globals.css` first, and only after asking a mentor.
 
 ## Docs change with the code
 
