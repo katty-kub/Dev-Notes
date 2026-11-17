@@ -28,7 +28,9 @@ const RootLayout = ({ children }: LayoutProps<'/'>) => (
     lang="cs"
     className={`${manrope.variable} ${jetbrainsMono.variable} ${martianMono.variable} h-full antialiased`}
   >
-    <body className="flex min-h-full flex-col">{children}</body>
+    <body className="flex min-h-full flex-col bg-background text-sm text-foreground">
+      {children}
+    </body>
   </html>
 )
 
