@@ -1,9 +1,20 @@
 import type { Metadata } from 'next'
-import { Geist } from 'next/font/google'
+import { JetBrains_Mono, Manrope, Martian_Mono } from 'next/font/google'
 import './globals.css'
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const manrope = Manrope({
+  variable: '--font-manrope',
+  subsets: ['latin', 'latin-ext'],
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: '--font-jetbrains-mono',
+  subsets: ['latin', 'latin-ext'],
+})
+
+const martianMono = Martian_Mono({
+  variable: '--font-martian-mono',
+  weight: '700',
   subsets: ['latin'],
 })
 
@@ -13,7 +24,10 @@ export const metadata: Metadata = {
 }
 
 const RootLayout = ({ children }: LayoutProps<'/'>) => (
-  <html lang="cs" className={`${geistSans.variable} h-full antialiased`}>
+  <html
+    lang="cs"
+    className={`${manrope.variable} ${jetbrainsMono.variable} ${martianMono.variable} h-full antialiased`}
+  >
     <body className="flex min-h-full flex-col">{children}</body>
   </html>
 )
