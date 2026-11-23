@@ -55,4 +55,10 @@
   * {
     border-color: var(--border);
   }
+
+  :focus-visible {
+    border-radius: var(--radius-sm);
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
 }
