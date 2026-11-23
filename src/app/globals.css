@@ -47,6 +47,8 @@
 
   --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  --spacing-header: 3.25rem;
 }
 
 @layer base {
