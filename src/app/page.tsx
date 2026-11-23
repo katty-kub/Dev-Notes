@@ -1,7 +1,11 @@
+import { Container } from '@/components/Container'
+
 const Home = () => (
-  <main className="p-8">
-    <h1 className="text-2xl font-bold">DevNotes</h1>
-  </main>
+  <Container>
+    <div className="py-7 md:py-14">
+      <h1 className="text-xs font-bold tracking-widest text-muted uppercase">Notebooks</h1>
+    </div>
+  </Container>
 )
 
 export default Home
