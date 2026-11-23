@@ -47,7 +47,6 @@
 
   --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
-  --font-logo: var(--font-martian-mono), ui-monospace, monospace;
 }
 
 @layer base {

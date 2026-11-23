@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { JetBrains_Mono, Manrope, Martian_Mono } from 'next/font/google'
+import { JetBrains_Mono, Manrope } from 'next/font/google'
 import './globals.css'
 
 const manrope = Manrope({
@@ -12,22 +12,13 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin', 'latin-ext'],
 })
 
-const martianMono = Martian_Mono({
-  variable: '--font-martian-mono',
-  weight: '700',
-  subsets: ['latin'],
-})
-
 export const metadata: Metadata = {
   title: 'DevNotes',
   description: 'Poznámky pro vývojáře',
 }
 
 const RootLayout = ({ children }: LayoutProps<'/'>) => (
-  <html
-    lang="cs"
-    className={`${manrope.variable} ${jetbrainsMono.variable} ${martianMono.variable} h-full antialiased`}
-  >
+  <html lang="cs" className={`${manrope.variable} ${jetbrainsMono.variable} h-full antialiased`}>
     <body className="flex min-h-full flex-col bg-background text-sm text-foreground">
       {children}
     </body>
