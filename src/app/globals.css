@@ -47,11 +47,18 @@
 
   --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
-  --font-logo: var(--font-martian-mono), ui-monospace, monospace;
+
+  --spacing-header: 3.25rem;
 }
 
 @layer base {
   * {
     border-color: var(--border);
+  }
+
+  :focus-visible {
+    border-radius: var(--radius-sm);
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
   }
 }

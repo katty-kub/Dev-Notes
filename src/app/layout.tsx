@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
-import { JetBrains_Mono, Manrope, Martian_Mono } from 'next/font/google'
+import { JetBrains_Mono, Manrope } from 'next/font/google'
 import './globals.css'
+
+import { Header } from '@/components/Header'
 
 const manrope = Manrope({
   variable: '--font-manrope',
@@ -12,12 +14,6 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin', 'latin-ext'],
 })
 
-const martianMono = Martian_Mono({
-  variable: '--font-martian-mono',
-  weight: '700',
-  subsets: ['latin'],
-})
-
 export const metadata: Metadata = {
   title: 'DevNotes',
   description: 'Poznámky pro vývojáře',
@@ -26,10 +22,11 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: LayoutProps<'/'>) => (
   <html
     lang="cs"
-    className={`${manrope.variable} ${jetbrainsMono.variable} ${martianMono.variable} h-full antialiased`}
+    className={`${manrope.variable} ${jetbrainsMono.variable} scroll-pt-header antialiased`}
   >
-    <body className="flex min-h-full flex-col bg-background text-sm text-foreground">
-      {children}
+    <body className="flex min-h-dvh flex-col bg-background text-sm text-foreground">
+      <Header />
+      <main className="flex-1">{children}</main>
     </body>
   </html>
 )
