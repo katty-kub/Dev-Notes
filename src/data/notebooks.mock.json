@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "starter",
+    "name": "Starter",
+    "noteCount": 277,
+    "clusters": [
+      { "slug": "react", "name": "React", "color": "cyan" },
+      { "slug": "typescript", "name": "TypeScript", "color": "violet" },
+      { "slug": "css", "name": "CSS", "color": "pink" },
+      { "slug": "javascript", "name": "JavaScript", "color": "yellow" },
+      { "slug": "node", "name": "Node", "color": "green" },
+      { "slug": "api", "name": "API", "color": "orange" },
+      { "slug": "testing", "name": "Testování", "color": "blue" },
+      { "slug": "tooling", "name": "Nástroje", "color": "red" }
+    ]
+  },
+  {
+    "slug": "api",
+    "name": "API",
+    "noteCount": 42,
+    "clusters": [
+      { "slug": "basics", "name": "Základy", "color": "green" },
+      { "slug": "styles-and-patterns", "name": "Styly a vzory", "color": "cyan" },
+      { "slug": "contracts-tests-docs", "name": "Kontrakty, testy a dokumentace", "color": "pink" },
+      { "slug": "reliability-and-performance", "name": "Spolehlivost a výkon", "color": "violet" },
+      { "slug": "api-design", "name": "Návrh a vývoj API", "color": "yellow" },
+      {
+        "slug": "operations-and-observability",
+        "name": "Provoz a observabilita",
+        "color": "orange"
+      },
+      { "slug": "auth-and-security", "name": "Auth a bezpečnost", "color": "blue" }
+    ]
+  },
+  {
+    "slug": "backend",
+    "name": "Backend",
+    "noteCount": 91,
+    "clusters": [
+      { "slug": "architecture", "name": "Architektura", "color": "blue" },
+      { "slug": "data-and-persistence", "name": "Data a persistence", "color": "yellow" },
+      { "slug": "messaging-and-jobs", "name": "Messaging a joby", "color": "pink" },
+      { "slug": "concurrency-and-scaling", "name": "Souběžnost a škálování", "color": "violet" },
+      { "slug": "operations-and-deploy", "name": "Provoz a deploy", "color": "red" },
+      { "slug": "nodejs", "name": "Node.js", "color": "green" },
+      { "slug": "python", "name": "Python", "color": "orange" },
+      { "slug": "postgresql", "name": "PostgreSQL", "color": "cyan" }
+    ]
+  }
+]
